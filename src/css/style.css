@@ -5,11 +5,8 @@ body, html {
   height: 100%;
 }
 
-.hamburgerButton .hamburgerButton__line {
-  width: 2rem;
-  height: 0.3rem;
-  margin: 0.3rem;
-  background-color: black;
+.hamburgerButton {
+  font-size: 2rem;
 }
 
 .navigation {
