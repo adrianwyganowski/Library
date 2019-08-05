@@ -1,7 +1,38 @@
 body, html {
-  background-color: #E4D6A7;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#dce3d3), color-stop(#dde4d0), color-stop(#dee6cd), color-stop(#e0e7ca), color-stop(#e2e8c7), color-stop(#e1e6c3), color-stop(#dfe5c0), color-stop(#dee3bc), color-stop(#d9dfb8), color-stop(#d4dbb3), color-stop(#cfd7af), to(#cad3ab));
+  background-image: linear-gradient(to right top, #dce3d3, #dde4d0, #dee6cd, #e0e7ca, #e2e8c7, #e1e6c3, #dfe5c0, #dee3bc, #d9dfb8, #d4dbb3, #cfd7af, #cad3ab);
   margin: 0;
   height: 100%;
+}
+
+.hamburgerButton .hamburgerButton__line {
+  width: 2rem;
+  height: 0.3rem;
+  margin: 0.3rem;
+  background-color: black;
+}
+
+.navigation {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 3rem;
+  z-index: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  overflow-x: hidden;
+}
+
+.navigation .navigation__list {
+  padding: 2rem;
+  text-decoration: none;
+  display: block;
+}
+
+.navigation .navigation__list .navigation__list--link {
+  color: black;
 }
 
 .registerContainer {
