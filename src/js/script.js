@@ -1,1 +1,1 @@
-NavbarMobile.init();
+NavbarMobile.init(); // change to one global 
