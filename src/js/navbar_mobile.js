@@ -1,32 +1,32 @@
 const NavbarMobile = (function() {
     'use strict';
     var DOM ={
-        navbarMobileIsOn: false,
+        navbarMobileIsOn: true,
         navbar : document.getElementsByClassName('navigation')[0],
         container : document.getElementsByClassName('container')[0],
         hamburgerButton : document.getElementsByClassName('hamburgerButton')[0],
         navExitButton : document.getElementsByClassName('navigation__list--exitButton')[0],
     };
     (function(){
-        if (screen.width < 900){
-            DOM.navbarMobileIsOn = true;
+        if (window.innerWidth < 900){
+            DOM.navbarMobileIsOn = false;
         }
         checkSizeOfWindow();
     }());
     function eventCheckSizeOfWindow(){
         window.addEventListener('resize',checkSizeOfWindow);
+        
     }
     function checkSizeOfWindow(){
-        if (screen.width < 900 && DOM.navbarMobileIsOn === true){
+        if (window.innerWidth < 900 && DOM.navbarMobileIsOn === false){
             addEventListners();
-            DOM.navbarMobileIsOn = false;
+            DOM.navbarMobileIsOn = true;
             DOM.navbar.style.width = '0';
             DOM.navbar.style.height = '100%';
-            console.log('tutaj');
         }
-        else if (screen.width > 900 && DOM.navbarMobileIsOn === false) {
+        else if (window.innerWidth > 900 && DOM.navbarMobileIsOn === true) {
             removeEventListners();
-            DOM.navbarMobileIsOn = true;
+            DOM.navbarMobileIsOn = false;
             DOM.navbar.style.width = '100%';
             DOM.navbar.style.height = '4rem';
             DOM.container.style.marginLeft = '0';
