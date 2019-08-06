@@ -20,16 +20,43 @@ body, html {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   overflow-x: hidden;
+  background-color: #bfb086;
 }
 
 .navigation .navigation__list {
-  padding: 2rem;
-  text-decoration: none;
+  padding: 1rem;
   display: block;
 }
 
-.navigation .navigation__list .navigation__list--link {
+.navigation .navigation__list a {
+  text-decoration: none;
   color: black;
+  font-size: 1.5rem;
+  display: block;
+  margin: 1rem;
+  text-align: center;
+  opacity: 0.8;
+  outline: none;
+}
+
+.navigation .navigation__list a:hover {
+  opacity: 1;
+}
+
+.navigation .navigation__list a:focus {
+  outline: none;
+}
+
+.navigation .navigation__list .navigation__list--exitButton {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.container {
+  -webkit-transition: margin-left 0.5s;
+  transition: margin-left 0.5s;
+  padding: 1rem;
 }
 
 .registerContainer {

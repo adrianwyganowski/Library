@@ -7,6 +7,7 @@ body,html{
 .hamburgerButton{
     font-size: 2rem;
 }
+
 .navigation{
     height: 100%;
     width: 0;
@@ -17,20 +18,42 @@ body,html{
     z-index: 1;
     transition: 0.5s;
     overflow-x: hidden;
+    background-color: #bfb086;
+
     .navigation__list{
-        padding:2rem;
-        text-decoration: none;
+        padding:1rem;
         display: block;
         
-     
-        .navigation__list--link
-        {
+        a{
+            text-decoration: none;
             color:black;
-        }   
+            font-size: 1.5rem;
+            display: block;
+            margin: 1rem;
+            text-align: center;
+            opacity: 0.8;
+            outline:none; // need to fix this blue background after click <- this should work but it's doesn't
+        }
+        a:hover{
+            opacity: 1;
+        }
+        a:focus{
+            outline:none;
+        }
+        .navigation__list--exitButton{
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+        
     }
     
 }
-
+.container
+{
+    transition: margin-left 0.5s;
+    padding: 1rem;
+}
 
 .registerContainer {
     width: 100%;
