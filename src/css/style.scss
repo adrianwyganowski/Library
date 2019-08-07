@@ -16,21 +16,23 @@ body,html{
     left: 0;
     padding-top: 3rem;
     z-index: 1;
-    transition: 0.5s;
     overflow-x: hidden;
+
     background-color: #bfb086;
+    transition: 0.5s;
 
     .navigation__list{
         padding:1rem;
         display: block;
         
         a{
-            text-decoration: none;
-            color:black;
-            font-size: 1.5rem;
             display: block;
             margin: 1rem;
             text-align: center;
+
+            text-decoration: none;
+            color:black;
+            font-size: 1.5rem;
             opacity: 0.8;
             outline:none; // need to fix this blue background after click <- this should work but it's doesn't
         }
@@ -62,23 +64,31 @@ body,html{
     align-items:center;
     justify-content: center;
     .register{
-        background-color: #bfb086;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 20rem;
         height: 20rem;
-        display: flex;
-        justify-content: center;
-        border-radius: 15%;
+
+
+        background-color: #bfb086;
+       
     }
     .register__header{
-        display: flex;
-        align-items: center;
-        padding: 1rem;
-        margin: 1rem;
-        height: 1.5rem;
+       margin:2rem;
+        
         
     }
-    form{
-        
+    .formRegister{
+        text-align: center;
+        .formRegister__label
+        {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
     }
 
 
