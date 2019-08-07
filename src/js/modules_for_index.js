@@ -1,0 +1,1 @@
+NavbarMobile.init();

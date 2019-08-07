@@ -1,5 +1,5 @@
 const NavbarMobile = (function() {
-    'use strict';
+    "use strict";
     var DOM ={
         navbarMobileIsOn: true,
         navbar : document.getElementsByClassName('navigation')[0],

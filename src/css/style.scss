@@ -57,13 +57,13 @@ body,html{
     padding: 1rem;
 }
 
-.registerContainer {
+.accountContainer {
     width: 98vw;
     height: 90vh; // to change
     display: flex;
     align-items:center;
     justify-content: center;
-    .register{
+    .account{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -75,7 +75,7 @@ body,html{
         background-color: #bfb086;
        
     }
-    .register__header{
+    .account__header{
        margin:2rem;
         
         
@@ -83,6 +83,16 @@ body,html{
     .formRegister{
         text-align: center;
         .formRegister__label
+        {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    }
+    .formLogin{
+        text-align: center;
+        .formLogin__label
         {
             display: flex;
             flex-direction: column;

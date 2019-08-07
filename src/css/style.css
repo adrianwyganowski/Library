@@ -59,7 +59,7 @@ body, html {
   padding: 1rem;
 }
 
-.registerContainer {
+.accountContainer {
   width: 98vw;
   height: 90vh;
   display: -webkit-box;
@@ -73,7 +73,7 @@ body, html {
           justify-content: center;
 }
 
-.registerContainer .register {
+.accountContainer .account {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -92,15 +92,31 @@ body, html {
   background-color: #bfb086;
 }
 
-.registerContainer .register__header {
+.accountContainer .account__header {
   margin: 2rem;
 }
 
-.registerContainer .formRegister {
+.accountContainer .formRegister {
   text-align: center;
 }
 
-.registerContainer .formRegister .formRegister__label {
+.accountContainer .formRegister .formRegister__label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.accountContainer .formLogin {
+  text-align: center;
+}
+
+.accountContainer .formLogin .formLogin__label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

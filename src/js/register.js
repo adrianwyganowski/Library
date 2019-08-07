@@ -1,5 +1,5 @@
 const Register = (function() {
-    'use strict';
+    "use strict";
     var DOM = {
         email :  document.getElementsByClassName('formRegister__label--email')[0],
         password : document.getElementsByClassName('formRegister__label--password')[0],
@@ -18,7 +18,7 @@ const Register = (function() {
     function validEmail(email){
         let check = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (email.match(check)){
-            console.log('ok');
+            console.log('ok');          
         }
         else{
             alert('Niewłaściwy Email');
@@ -29,7 +29,7 @@ const Register = (function() {
             let check=  /^[A-Za-z]\w{7,14}$/;
             if(password.match(check)){
                 console.log('working '); // learn how to do proper promises to create function waiting for email and password validation over to sign to "db"
-            }
+            }                            // ofc hashing and salting password 
             else{
                 alert('Hasło musi składać się przynajmniej z 7 znaków ale nie więcej niż 16. Na hasło składać się mogą litery oraz liczby ale pierwszym znakiem musi byc litera');
                 DOM.password.value = ''; 
