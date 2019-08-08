@@ -1,2 +1,3 @@
-NavbarMobile.init();
-Login.init();
+var MYAPP = MYAPP || {};
+MYAPP.NavbarMobile;
+MYAPP.Login;

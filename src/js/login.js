@@ -13,3 +13,4 @@ const Login =(function (){
         init:init
     };
 }()); 
+Login.init();

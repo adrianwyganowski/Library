@@ -1,4 +1,4 @@
-const NavbarMobile = (function() {
+MYAPP.NavbarMobile = (function() {
     "use strict";
     var DOM ={
         navbarMobileIsOn: true,
@@ -55,3 +55,5 @@ const NavbarMobile = (function() {
        init: init,
     };
 }());
+
+MYAPP.NavbarMobile.init();

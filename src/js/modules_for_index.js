@@ -1,1 +1,2 @@
-NavbarMobile.init();
+var MYAPP = MYAPP || {};
+MYAPP.NavbarMobile;

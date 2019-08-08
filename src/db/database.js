@@ -1,4 +1,6 @@
 //I will use this file like database to store users 
-const Db = (function (){
-    
+const Database = (function (){
+    var db ={
+        users :[],
+    };
 }())
