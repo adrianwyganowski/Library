@@ -10,7 +10,8 @@ const User = (function(){
         }
 
     }
+    // when i learn how to do proper promises this module should send whole information about this usert to session storage
     return{
-        createUser : createUser
+        init : createUser
     }
 }())

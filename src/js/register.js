@@ -5,8 +5,6 @@ const Register = (function() {
         password : document.getElementsByClassName('formRegister__label--password')[0],
         passwordToMatch : document.getElementsByClassName('formRegister__label--passwordToMatch')[0],
         submitButton : document.getElementsByClassName('formRegister_button')[0],
-        
-        
     }
     function eventSubmitButton(){
         DOM.submitButton.addEventListener('click',fetchDataToValid);
@@ -29,7 +27,7 @@ const Register = (function() {
             let check=  /^[A-Za-z]\w{7,14}$/;
             if(password.match(check)){
                 console.log('working '); // learn how to do proper promises to create function waiting for email and password validation over to sign to "db"
-            }                            // ofc hashing and salting password 
+            }                            
             else{
                 alert('Hasło musi składać się przynajmniej z 7 znaków ale nie więcej niż 16. Na hasło składać się mogą litery oraz liczby ale pierwszym znakiem musi byc litera');
                 DOM.password.value = ''; 
