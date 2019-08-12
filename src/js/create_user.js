@@ -1,4 +1,4 @@
-const User = (function(){
+const CreateUser = (function(){
     "use strict"
     var idNumber = 0;
     function createUser(email, password) {
@@ -14,4 +14,5 @@ const User = (function(){
     return{
         init : createUser
     }
-}())
+}());
+CreateUser.init();
