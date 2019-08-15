@@ -1,6 +1,6 @@
-MYAPP.Login =(function (){
+MYAPP.Login =(function() {
     "use strict"
-    var DOM = {
+    let DOM = {
         email :  document.getElementsByClassName('formLogin__label--email')[0],
         password : document.getElementsByClassName('formLogin__label--password')[0],
         submitButton : document.getElementsByClassName('formLogin_button')[0]
@@ -10,11 +10,13 @@ MYAPP.Login =(function (){
     }
     function checkDbToLogin(){
         let emailToFind = DOM.email.value;
+        console.log('tutaj');
+        console.log(MYAPP.Db.dbLength());
         let passwordToFind = DOM.email.value; 
     }
 
     function init(){
-        eventSubmitButton
+        eventSubmitButton();
     }
     return{
         init:init

@@ -1,23 +1,28 @@
 MYAPP.Db = (function () {
     "use strict"
-    let db = [ [1,'abc@abc.pl','password123','normal']];
+    let db = [ ];
     function checkSessionStorage(){
-        if(sessionStorage.length != 0)
-        {   //HERE I DIVIDED BY 5 BECAUSE I HAVE 4 PARAMETERS OF USER AND ONE ADDITIONAL 
-            //ONE FOR LIVE SERVER AFTER DEVELOPMENT SHOULD BE DIVIDED BY 4
-            for (let i =0; i < (sessionStorage.length/5); i++){ 
+        if(sessionStorage.length != 1)
+        {   // MINUS ONE BECAUSE LIVE SERVER ADDS ONE 
+            let indexOfUsers = (sessionStorage.length-1)/4 ; 
+            // I added here one because id is not starting from 0 like index does
+            for (let i =1; i < (indexOfUsers+1); i++){ 
             let obj = [];
-            obj[0] = sessionStorage.getItem('id');
-            obj[1] = sessionStorage.getItem('email');
-            obj[2] = sessionStorage.getItem('password');
-            obj[3] = sessionStorage.getItem('status');
+            obj[0] = sessionStorage.getItem(`id${i}`);
+            obj[1] = sessionStorage.getItem(`email${i}`);
+            obj[2] = sessionStorage.getItem(`password${i}`);
+            obj[3] = sessionStorage.getItem(`status${i}`);
             db.push(obj);
             console.log(db);
             }
         }
     }
+    function dbLength(){
+        return db.length;
+    }
     return{
-        checkSessionStorage:checkSessionStorage
+        checkSessionStorage:checkSessionStorage,
+        dbLength: dbLength
     };   
 }());
 MYAPP.Db.checkSessionStorage();
