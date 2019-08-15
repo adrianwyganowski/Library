@@ -1,7 +1,6 @@
 MYAPP.Db = (function () {
     "use strict"
     let db = [ [1,'abc@abc.pl','password123','normal']];
-    
     function checkSessionStorage(){
         if(sessionStorage.length != 0)
         {   //HERE I DIVIDED BY 5 BECAUSE I HAVE 4 PARAMETERS OF USER AND ONE ADDITIONAL 
@@ -12,19 +11,13 @@ MYAPP.Db = (function () {
             obj[1] = sessionStorage.getItem('email');
             obj[2] = sessionStorage.getItem('password');
             obj[3] = sessionStorage.getItem('status');
-            db =  [... obj];
-            console.log(db+ ' DB');
+            db.push(obj);
+            console.log(db);
             }
         }
     }
-
-    function init(){
-        checkSessionStorage();
-    }
-
     return{
-        init:init,
         checkSessionStorage:checkSessionStorage
     };   
 }());
-MYAPP.Db.init();
+MYAPP.Db.checkSessionStorage();

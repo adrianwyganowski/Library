@@ -1,7 +1,8 @@
 MYAPP.CreateUser = (function(){
     "use strict"
-    let idNumber = 1;
+    let idNumber = 2;
     function createUser(email, password) {
+       
         let obj = {
             id : idNumber++,
             email : email,
