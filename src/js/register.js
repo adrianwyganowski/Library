@@ -1,4 +1,4 @@
-const Register = (function() {
+MYAPP.Register = (function() {
     "use strict";
     var DOM = {
         email :  document.getElementsByClassName('formRegister__label--email')[0],
@@ -7,16 +7,15 @@ const Register = (function() {
         submitButton : document.getElementsByClassName('formRegister_button')[0],
     }
     function eventSubmitButton(){
-        DOM.submitButton.addEventListener('click',fetchDataToValid);
+        DOM.submitButton.addEventListener('click',fetchDataToValidAndSend);
     }
-    function fetchDataToValid(){
-        validEmail(DOM.email.value);
-        validPassword(DOM.password.value, DOM.passwordToMatch.value);
+    function fetchDataToValidAndSend(){
+        sendPasswordToDb(validEmail(DOM.email.value),validPassword(DOM.password.value, DOM.passwordToMatch.value));
     }
     function validEmail(email){
         let check = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (email.match(check)){
-            console.log('ok');          
+            return email;         
         }
         else{
             alert('Niewłaściwy Email');
@@ -26,7 +25,7 @@ const Register = (function() {
         if(password === passwordToMatch){
             let check=  /^[A-Za-z]\w{7,14}$/;
             if(password.match(check)){
-                console.log('working '); // learn how to do proper promises to create function waiting for email and password validation over to sign to "db"
+               return password;
             }                            
             else{
                 alert('Hasło musi składać się przynajmniej z 7 znaków ale nie więcej niż 16. Na hasło składać się mogą litery oraz liczby ale pierwszym znakiem musi byc litera');
@@ -40,6 +39,14 @@ const Register = (function() {
             DOM.passwordToMatch.value = '';
         }
     }
+    function sendPasswordToDb(emailPromise,passwordPromise){
+        return Promise.all ([emailPromise,passwordPromise])
+        .then(function(values){
+            MYAPP.CreateUser.createUser(values[0],values[1]);
+            alert('Konto zostało założone');
+
+        })
+    }
     function init() {
         eventSubmitButton()
     }
@@ -48,4 +55,4 @@ const Register = (function() {
     };
 
 }());
-Register.init(); 
+MYAPP.Register.init(); 

@@ -1,4 +1,5 @@
 var MYAPP = MYAPP || {};
 MYAPP.NavbarMobile;
 MYAPP.Register;
-MYAPP.CreateUser
+MYAPP.CreateUser;
+MYAPP.Db;
