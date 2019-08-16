@@ -15,7 +15,8 @@ MYAPP.Register = (function() {
     function validEmail(email){
         let check = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (email.match(check)){
-            return email;         
+            let result = checkIfUnique(email,'Ten email został już użyty.Proszę użyć innego.')
+            return result;         
         }
         else{
             alert('Niewłaściwy Email');
@@ -25,7 +26,8 @@ MYAPP.Register = (function() {
         if(password === passwordToMatch){
             let check=  /^[A-Za-z]\w{7,14}$/;
             if(password.match(check)){
-               return password;
+                
+                return password;
             }                            
             else{
                 alert('Hasło musi składać się przynajmniej z 7 znaków ale nie więcej niż 16. Na hasło składać się mogą litery oraz liczby ale pierwszym znakiem musi byc litera');
@@ -42,10 +44,29 @@ MYAPP.Register = (function() {
     function sendPasswordToDb(emailPromise,passwordPromise){
         return Promise.all ([emailPromise,passwordPromise])
         .then(function(values){
+            if(values[0] === null || values[1] === null){
+                return;
+            }
             MYAPP.CreateUser.createUser(values[0],values[1]);
             alert('Konto zostało założone');
 
         })
+    }
+    function checkIfUnique(value, msg)
+    {
+        let dbAccess = MYAPP.Db.dbAccess();
+        let dbLength = MYAPP.Db.dbLength();
+        if(dbLength >= 1){   
+            for (let i = 0; i <= dbLength; i++){
+                if (value === dbAccess[i][1]){
+                    alert(msg);
+                    return null;
+                }
+            }
+            console.log('dlugosc wiecej niz jeden');
+        }
+        
+        return value;
     }
     function init() {
         eventSubmitButton()
@@ -53,6 +74,5 @@ MYAPP.Register = (function() {
     return{
         init:init
     };
-
 }());
 MYAPP.Register.init(); 

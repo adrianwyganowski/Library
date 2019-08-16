@@ -13,6 +13,8 @@ MYAPP.CreateUser = (function(){
         sessionStorage.setItem(`email${idNumber}`,obj.email);
         sessionStorage.setItem(`password${idNumber}`,obj.password);
         sessionStorage.setItem(`status${idNumber}`,obj.status);
+        MYAPP.Db.checkSessionStorage();
+        MYAPP.Db.dbAccess;
     }
     return{
         createUser : createUser

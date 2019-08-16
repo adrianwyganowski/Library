@@ -13,16 +13,19 @@ MYAPP.Db = (function () {
             obj[2] = sessionStorage.getItem(`password${i}`);
             obj[3] = sessionStorage.getItem(`status${i}`);
             db.push(obj);
-            console.log(db);
             }
         }
     }
     function dbLength(){
         return db.length;
     }
+    function dbAccess(){
+        return db;
+    }
     return{
         checkSessionStorage:checkSessionStorage,
-        dbLength: dbLength
+        dbLength: dbLength,
+        dbAccess :dbAccess
     };   
 }());
 MYAPP.Db.checkSessionStorage();

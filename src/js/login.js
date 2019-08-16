@@ -9,12 +9,25 @@ MYAPP.Login =(function() {
         DOM.submitButton.addEventListener('click',checkDbToLogin);
     }
     function checkDbToLogin(){
+        let database = MYAPP.Db.dbAccess();
+        let users =MYAPP.Db.dbLength();
         let emailToFind = DOM.email.value;
-        console.log('tutaj');
-        console.log(MYAPP.Db.dbLength());
-        let passwordToFind = DOM.email.value; 
+        let passwordToFind = DOM.password.value; 
+        for (let i = 0; i < users; i++){
+            if (database[i][1] === emailToFind){
+                if(database[i][2] === passwordToFind){
+                    alert('Logowanie udane')
+                    sessionStorage.setItem('logged',(i+1));
+                }
+                else{
+                    alert('Podane dane są nie prawidłowe');
+                } 
+            }
+            else{   
+                alert('Podane dane są nie prawidłowe');
+            }
+        }
     }
-
     function init(){
         eventSubmitButton();
     }
