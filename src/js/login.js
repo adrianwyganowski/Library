@@ -16,15 +16,15 @@ MYAPP.Login =(function() {
         for (let i = 0; i < users; i++){
             if (database[i][1] === emailToFind){
                 if(database[i][2] === passwordToFind){
-                    alert('Logowanie udane')
+                    alert('Login successful')
                     sessionStorage.setItem('logged',(i+1));
                 }
                 else{
-                    alert('Podane dane są nie prawidłowe');
+                    alert('Your email or password are incorrect');
                 } 
             }
             else{   
-                alert('Podane dane są nie prawidłowe');
+                alert('Your email or password are incorrect');
             }
         }
     }

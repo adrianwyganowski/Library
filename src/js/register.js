@@ -15,11 +15,11 @@ MYAPP.Register = (function() {
     function validEmail(email){
         let check = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (email.match(check)){
-            let result = checkIfUnique(email,'Ten email został już użyty.Proszę użyć innego.')
+            let result = checkIfUnique(email,'This email address already exists please choose a different one')
             return result;         
         }
         else{
-            alert('Niewłaściwy Email');
+            alert('Incorrect email address format');
         }
     }
     function validPassword(password, passwordToMatch){
@@ -30,13 +30,13 @@ MYAPP.Register = (function() {
                 return password;
             }                            
             else{
-                alert('Hasło musi składać się przynajmniej z 7 znaków ale nie więcej niż 16. Na hasło składać się mogą litery oraz liczby ale pierwszym znakiem musi byc litera');
+                alert('A password must contain at least 7 characters but not more than 17. First character must be Uppercase');
                 DOM.password.value = ''; 
                 DOM.passwordToMatch.value = '';   // here i should do break case to check what is wrong with password for e.g. if password has less than 7 letters give altert like "your password should have more than 7 letters"
             }
         }
         else{
-            alert('Hasła sie nie zgadzają')
+            alert("These passwords don't match. Please try again")
             DOM.password.value = ''; 
             DOM.passwordToMatch.value = '';
         }
@@ -48,7 +48,7 @@ MYAPP.Register = (function() {
                 return;
             }
             MYAPP.CreateUser.createUser(values[0],values[1]);
-            alert('Konto zostało założone');
+            alert('Your account has been created');
 
         })
     }
