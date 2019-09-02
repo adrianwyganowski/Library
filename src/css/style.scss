@@ -1,5 +1,5 @@
 body,html{
-    background-image: linear-gradient(to right top, #dce3d3, #dde4d0, #dee6cd, #e0e7ca, #e2e8c7, #e1e6c3, #dfe5c0, #dee3bc, #d9dfb8, #d4dbb3, #cfd7af, #cad3ab);
+    font-family: 'Raleway', sans-serif;
     margin: 0;
     height: 100%;
 }
@@ -57,15 +57,18 @@ body,html{
 }
 .mainPageContainer{
     display: flex;
-    background-color: #dedeca;
+    
     width: 95%;
     margin-top: 2rem;
     flex-direction: row;
-    .mainPageContainer__main{
+    .mainPageMain{
         width: 70%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        .mainPageMain__header{
+            font-family: 'Oswald', sans-serif;
+        }
     }
     .mainPageContainer__aside{
         display: flex;

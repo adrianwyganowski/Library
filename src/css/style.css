@@ -1,6 +1,5 @@
 body, html {
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#dce3d3), color-stop(#dde4d0), color-stop(#dee6cd), color-stop(#e0e7ca), color-stop(#e2e8c7), color-stop(#e1e6c3), color-stop(#dfe5c0), color-stop(#dee3bc), color-stop(#d9dfb8), color-stop(#d4dbb3), color-stop(#cfd7af), to(#cad3ab));
-  background-image: linear-gradient(to right top, #dce3d3, #dde4d0, #dee6cd, #e0e7ca, #e2e8c7, #e1e6c3, #dfe5c0, #dee3bc, #d9dfb8, #d4dbb3, #cfd7af, #cad3ab);
+  font-family: 'Raleway', sans-serif;
   margin: 0;
   height: 100%;
 }
@@ -71,7 +70,6 @@ body, html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #dedeca;
   width: 95%;
   margin-top: 2rem;
   -webkit-box-orient: horizontal;
@@ -80,7 +78,7 @@ body, html {
           flex-direction: row;
 }
 
-.mainPageContainer .mainPageContainer__main {
+.mainPageContainer .mainPageMain {
   width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -92,6 +90,10 @@ body, html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.mainPageContainer .mainPageMain .mainPageMain__header {
+  font-family: 'Oswald', sans-serif;
 }
 
 .mainPageContainer .mainPageContainer__aside {
