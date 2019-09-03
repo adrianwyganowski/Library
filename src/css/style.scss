@@ -69,6 +69,40 @@ body,html{
         .mainPageMain__header{
             font-family: 'Oswald', sans-serif;
         }
+        .mainPage__books{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 2rem;
+            text-decoration: none;
+            color:black;
+            
+            .bookThumbnail{
+                text-align: center;
+                width: 33%;
+                text-decoration: none;
+                color:black;
+                a{
+                    text-decoration: none;
+                    color:black;
+
+                    .bookThumbnail__title{
+                        font-size: 1.2rem;
+                        opacity: 0.8;
+                    }
+                    .bookThumbnail__title:hover{
+                        opacity: 1;
+                    }
+                    .bookThumbnail__author{
+                        opacity: 0.8;
+                    }
+                    .bookThumbnail__author:hover{
+                        opacity: 1;
+                    }
+                }
+            
+            }
+        }
     }
     .mainPageContainer__aside{
         display: flex;

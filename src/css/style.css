@@ -96,6 +96,50 @@ body, html {
   font-family: 'Oswald', sans-serif;
 }
 
+.mainPageContainer .mainPageMain .mainPage__books {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 2rem;
+  text-decoration: none;
+  color: black;
+}
+
+.mainPageContainer .mainPageMain .mainPage__books .bookThumbnail {
+  text-align: center;
+  width: 33%;
+  text-decoration: none;
+  color: black;
+}
+
+.mainPageContainer .mainPageMain .mainPage__books .bookThumbnail a {
+  text-decoration: none;
+  color: black;
+}
+
+.mainPageContainer .mainPageMain .mainPage__books .bookThumbnail a .bookThumbnail__title {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.mainPageContainer .mainPageMain .mainPage__books .bookThumbnail a .bookThumbnail__title:hover {
+  opacity: 1;
+}
+
+.mainPageContainer .mainPageMain .mainPage__books .bookThumbnail a .bookThumbnail__author {
+  opacity: 0.8;
+}
+
+.mainPageContainer .mainPageMain .mainPage__books .bookThumbnail a .bookThumbnail__author:hover {
+  opacity: 1;
+}
+
 .mainPageContainer .mainPageContainer__aside {
   display: -webkit-box;
   display: -ms-flexbox;
