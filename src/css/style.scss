@@ -56,15 +56,10 @@ body,html{
     justify-content: center;
 }
 .mainPageContainer{
-    display: flex;
-    
-    width: 95%;
+    width: 100%;
     margin-top: 2rem;
-    flex-direction: row;
     .mainPageMain{
-        width: 70%;
-        display: flex;
-        flex-direction: column;
+        width: 100%;
         align-items: center;
         .mainPageMain__header{
             font-family: 'Oswald', sans-serif;
@@ -73,15 +68,9 @@ body,html{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            margin: 2rem;
-            text-decoration: none;
-            color:black;
-            
             .bookThumbnail{
                 text-align: center;
-                width: 33%;
-                text-decoration: none;
-                color:black;
+                width: 50%;
                 a{
                     text-decoration: none;
                     color:black;
@@ -105,11 +94,7 @@ body,html{
         }
     }
     .mainPageContainer__aside{
-        display: flex;
-        width: 30%;
-        flex-direction: column;
-        align-items: center;
-        border-left: #9e9e9e 1px solid;
+        display: none;
     }
 }
 .account{
@@ -183,6 +168,68 @@ body,html{
         }
     }
     .mainPageContainer{
-        width: 75%;
+        display: flex;
+        width: 95%;
+        margin-top: 2rem;
+        flex-direction: row;
+        .mainPageMain{
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .mainPageMain__header{
+                font-family: 'Oswald', sans-serif;
+            }
+            .mainPage__books{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin: 2rem;
+                .bookThumbnail{
+                    text-align: center;
+                    width: 33%;
+                    a{
+                        text-decoration: none;
+                        color:black;
+    
+                        .bookThumbnail__title{
+                            font-size: 1.2rem;
+                            opacity: 0.8;
+                        }
+                        .bookThumbnail__title:hover{
+                            opacity: 1;
+                        }
+                        .bookThumbnail__author{
+                            opacity: 0.8;
+                        }
+                        .bookThumbnail__author:hover{
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .mainPageAside{
+            display: flex;
+            width: 30%;
+            flex-direction: column;
+            align-items: center;
+            border-left: #9e9e9e 1px solid;
+            
+            .mainPageAside__header{
+                font-family: 'Oswald', sans-serif;
+            }
+            .mainPageAside__generes{
+                text-align: justify;
+                line-height: 2rem;
+                margin: 1.1rem;
+            
+                a{
+                    text-decoration: none;
+                    color:black;
+                }
+            }
+        }
+       
     }
 }
