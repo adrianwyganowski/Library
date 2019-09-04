@@ -265,6 +265,7 @@ body, html {
   .mainPageContainer .mainPageMain .mainPage__books .bookThumbnail {
     text-align: center;
     width: 33%;
+    margin-bottom: 1.4rem;
   }
   .mainPageContainer .mainPageMain .mainPage__books .bookThumbnail a {
     text-decoration: none;

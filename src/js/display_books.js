@@ -36,10 +36,9 @@ MYAPP.DisplayBooks = (function () {
             a.innerHTML = `${generes[i]} `;
             a.addEventListener('click',function(){
                 sessionStorage.setItem('genere',generes[i]);
-                window.open('genere.html');
+                window.open('genere.html','_self') ;
             })
             document.getElementsByClassName('mainPageAside__generes')[0].appendChild(a);
-            
         } 
     }
     function booksForIndex(books) {
@@ -53,6 +52,12 @@ MYAPP.DisplayBooks = (function () {
         generesForIndex:generesForIndex
     };
 }());
-
-MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:1775412490','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn=0575086254']);
-MYAPP.DisplayBooks.generesForIndex(['Art','Biography','Business','Classics','Cookbooks','Fantasy','Fiction','History','Horror','Music','Mystery','Poetry','Psychology','Romance','Science','Sport','Thriller','Travel'])
+if(sessionStorage.getItem('genere') !== null){
+    MYAPP.DisplayBooks.booksForIndex([`subject:${sessionStorage.getItem('genere')}`])
+    document.getElementsByClassName('mainPageMain__header--text')[0].innerHTML = `${sessionStorage.getItem('genere')}:`;
+    sessionStorage.removeItem('genere');
+}
+else{
+    MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:1775412490','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn=0575086254']);
+}
+MYAPP.DisplayBooks.generesForIndex(['Art','Biography','Business','Classics','Fantasy','Fiction','History','Horror','Music','Mystery','Poetry','Psychology','Romance','Sport','Thriller','Travel'])
