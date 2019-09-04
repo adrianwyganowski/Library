@@ -20,9 +20,7 @@ MYAPP.DisplayBooks = (function () {
                     <div bookThumbnail__author>
                         ${obj.items[j].volumeInfo.authors[0]}
                     </div>
-                    <div>
-                        ${(obj.items[j].saleInfo.retailPrice.amount) || ''} ${obj.items[j].saleInfo.retailPrice.currencyCode} 
-                    </div>
+                 
                 </a>`
                 document.getElementsByClassName('mainPage__books')[0].appendChild(div);  
                 console.log(obj);
@@ -36,7 +34,12 @@ MYAPP.DisplayBooks = (function () {
             a.className = 'mainPageAside__generes--link';
             a.href = '#';
             a.innerHTML = `${generes[i]} `;
+            a.addEventListener('click',function(){
+                sessionStorage.setItem('genere',generes[i]);
+                window.open('genere.html');
+            })
             document.getElementsByClassName('mainPageAside__generes')[0].appendChild(a);
+            
         } 
     }
     function booksForIndex(books) {
@@ -50,5 +53,6 @@ MYAPP.DisplayBooks = (function () {
         generesForIndex:generesForIndex
     };
 }());
+
 MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:1775412490','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn=0575086254']);
-MYAPP.DisplayBooks.generesForIndex(['Art','Biography','Business','Classics','Cookbooks','Fantasy','Fiction','History','Horror','Music','Mystery','Poetry','Psychology','Romance','Science','Sport','Thriller','Travel']);
+MYAPP.DisplayBooks.generesForIndex(['Art','Biography','Business','Classics','Cookbooks','Fantasy','Fiction','History','Horror','Music','Mystery','Poetry','Psychology','Romance','Science','Sport','Thriller','Travel'])
