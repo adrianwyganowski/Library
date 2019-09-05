@@ -1,5 +1,5 @@
+"use strict";
 MYAPP.DisplayBooks = (function () {
-    "use strict";
     let link = 'https://www.googleapis.com/books/v1/volumes?q=';
     let key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
     async function displayBooks(books){
@@ -11,6 +11,10 @@ MYAPP.DisplayBooks = (function () {
             for (let j = 0; j < obj.totalItems; j++){
                 let div = document.createElement('div');
                 div.className = 'bookThumbnail';
+                div.addEventListener('click',function(){
+                    sessionStorage.setItem('isbn',`${obj.items[j].volumeInfo.industryIdentifiers[0].identifier}`);
+                    window.open('book.html','_self') ;
+                })
                 div.innerHTML =
                 `<a href='#'>
                     <img src='${obj.items[j].volumeInfo.imageLinks.thumbnail}' alt='Thumbnail photo of "${obj.items[j].volumeInfo.title}"'>
@@ -56,6 +60,10 @@ if(sessionStorage.getItem('genere') !== null){
     MYAPP.DisplayBooks.booksForIndex([`subject:${sessionStorage.getItem('genere')}`])
     document.getElementsByClassName('mainPageMain__header--text')[0].innerHTML = `${sessionStorage.getItem('genere')}:`;
     sessionStorage.removeItem('genere');
+}
+else if(sessionStorage.getItem('isbn') !== null){
+    MYAPP.DisplayBooks.booksForIndex([`isbn:${sessionStorage.getItem('isbn')}`])
+    sessionStorage.removeItem('isbn');
 }
 else{
     MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:1775412490','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn=0575086254']);
