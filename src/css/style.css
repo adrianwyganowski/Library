@@ -284,6 +284,15 @@ body, html {
   .mainPageContainer .mainPageMain .mainPage__books .bookThumbnail a .bookThumbnail__author:hover {
     opacity: 1;
   }
+  .mainPageContainer .mainPageMain .mainPage__books .specificBook {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
   .mainPageContainer .mainPageAside {
     display: -webkit-box;
     display: -ms-flexbox;

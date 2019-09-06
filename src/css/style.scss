@@ -208,6 +208,10 @@ body,html{
                         }
                     }
                 }
+                .specificBook{
+                    display: flex;
+                    flex-direction: row;  
+                }
             }
         }
         .mainPageAside{

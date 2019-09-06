@@ -2,7 +2,7 @@
 MYAPP.DisplayBooks = (function () {
     let link = 'https://www.googleapis.com/books/v1/volumes?q=';
     let key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
-    async function displayBooks(books){
+    async function displayBooks(books){ // should use flag because with generes it send multiple request and only one is enough
         for (let i = 0; i < books.length;i++)
         {
             let reuqest = link + books[i] + key;
@@ -60,10 +60,6 @@ if(sessionStorage.getItem('genere') !== null){
     MYAPP.DisplayBooks.booksForIndex([`subject:${sessionStorage.getItem('genere')}`])
     document.getElementsByClassName('mainPageMain__header--text')[0].innerHTML = `${sessionStorage.getItem('genere')}:`;
     sessionStorage.removeItem('genere');
-}
-else if(sessionStorage.getItem('isbn') !== null){
-    MYAPP.DisplayBooks.booksForIndex([`isbn:${sessionStorage.getItem('isbn')}`])
-    sessionStorage.removeItem('isbn');
 }
 else{
     MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:1775412490','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn=0575086254']);
