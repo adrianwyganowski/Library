@@ -293,6 +293,12 @@ body, html {
         -ms-flex-direction: row;
             flex-direction: row;
   }
+  .mainPageContainer .mainPageMain .mainPage__books .specificBook .specificBook__bookCover {
+    margin: 1rem;
+  }
+  .mainPageContainer .mainPageMain .mainPage__books .specificBook .specificBook__information {
+    text-align: justify;
+  }
   .mainPageContainer .mainPageAside {
     display: -webkit-box;
     display: -ms-flexbox;

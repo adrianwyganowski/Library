@@ -5,7 +5,7 @@ MYAPP.DisplayBooks = (function () {
     async function displayBooks(books){ // should use flag because with generes it send multiple request and only one is enough
         for (let i = 0; i < books.length;i++)
         {
-            let reuqest = link + books[i] + key;
+            let reuqest = link + books[i] + key; // create new js file for genrest because now linkt to fetch is with "volumes?" or just add new value to this method
             let response = await fetch(reuqest);
             let obj = await response.json();
             for (let j = 0; j < obj.totalItems; j++){
@@ -24,7 +24,6 @@ MYAPP.DisplayBooks = (function () {
                     <div bookThumbnail__author>
                         ${obj.items[j].volumeInfo.authors[0]}
                     </div>
-                 
                 </a>`
                 document.getElementsByClassName('mainPage__books')[0].appendChild(div);  
                 console.log(obj);
@@ -36,7 +35,6 @@ MYAPP.DisplayBooks = (function () {
         for (let i = 0; i < length; i++){
             let a = document.createElement('a');
             a.className = 'mainPageAside__generes--link';
-            a.href = '#';
             a.innerHTML = `${generes[i]} `;
             a.addEventListener('click',function(){
                 sessionStorage.setItem('genere',generes[i]);
