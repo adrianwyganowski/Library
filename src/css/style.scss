@@ -236,10 +236,12 @@ body,html{
                 text-align: justify;
                 line-height: 2rem;
                 margin: 1.1rem;
-            
                 a{
                     text-decoration: none;
                     color:black;
+                }
+                a:hover{
+                    cursor: pointer;
                 }
             }
         }

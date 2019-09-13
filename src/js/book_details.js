@@ -7,6 +7,15 @@ MYAPP.BookDetails = (function () {
         let reuqest = link + book + key;
         let response = await fetch(reuqest);
         let obj = await response.json();
+        let authorOfSpecificBook;
+        if (typeof obj.items[0].volumeInfo.authors == "undefined"){
+            authorOfSpecificBook = '';
+            displayRecommendedBooks(obj.items[0].volumeInfo.categories[0]);
+        }
+        else{
+            authorOfSpecificBook =obj.items[0].volumeInfo.authors[0];
+            displayRecommendedBooks(authorOfSpecificBook);
+        }
         let div = document.createElement('div');
         div.className = 'specificBook';
         div.innerHTML = 
@@ -18,7 +27,7 @@ MYAPP.BookDetails = (function () {
                 <h2>${obj.items[0].volumeInfo.title}</h2>
             </div>
             <div class='specificBook__information--author'>
-                <h4>${obj.items[0].volumeInfo.authors[0]}</h4>
+                <h4>${authorOfSpecificBook}</h4>
             </div>
             <div class='specificBook__information--description'>
                 <p>${obj.items[0].volumeInfo.description}<p> 
@@ -28,10 +37,9 @@ MYAPP.BookDetails = (function () {
             </div>
         </main>`
         document.getElementsByClassName('mainPage__books')[0].appendChild(div);
-        displayRecommendedBooks(obj.items[0].volumeInfo.authors[0]);
     }
-    async function displayRecommendedBooks(author){
-        let reuqest = link + author + key;
+    async function displayRecommendedBooks(connection){
+        let reuqest = link + connection + key;
         let response = await fetch(reuqest);
         let obj = await response.json();
        
@@ -49,12 +57,13 @@ MYAPP.BookDetails = (function () {
                     ${obj.items[i].volumeInfo.title}
                 </div>
                 <div bookThumbnail__author>
-                    ${obj.items[i].volumeInfo.authors[0] || obj.items[i].volumeInfo.publisher[0]}
+                    ${obj.items[i].volumeInfo.authors[0] }
                 </div>
             </a>`
             document.getElementsByClassName('mainPageAside__generes')[0].appendChild(div);
         }
     }
+   
     function bookForBookDetails(book){
         displayBook(book);
     }

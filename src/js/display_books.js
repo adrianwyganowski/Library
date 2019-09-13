@@ -2,19 +2,26 @@
 MYAPP.DisplayBooks = (function () {
     let link = 'https://www.googleapis.com/books/v1/volumes?q=';
     let key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
-    async function displayBooks(books){ // should use flag because with generes it send multiple request and only one is enough
+    async function displayBooks(books){ 
         for (let i = 0; i < books.length;i++)
         {
-            let reuqest = link + books[i] + key; // create new js file for genrest because now linkt to fetch is with "volumes?" or just add new value to this method
+            let reuqest = link + books[i] + key; 
             let response = await fetch(reuqest);
             let obj = await response.json();
             for (let j = 0; j < obj.totalItems; j++){
                 let div = document.createElement('div');
+                let author;
                 div.className = 'bookThumbnail';
                 div.addEventListener('click',function(){
                     sessionStorage.setItem('isbn',`${obj.items[j].volumeInfo.industryIdentifiers[0].identifier}`);
                     window.open('book.html','_self') ;
                 })
+                if (typeof obj.items[j].volumeInfo.authors == "undefined"){
+                    author = '';
+                }
+                else{
+                     author =obj.items[j].volumeInfo.authors[0];
+                }
                 div.innerHTML =
                 `<a href='#'>
                     <img src='${obj.items[j].volumeInfo.imageLinks.thumbnail}' alt='Thumbnail photo of "${obj.items[j].volumeInfo.title}"'>
@@ -22,7 +29,7 @@ MYAPP.DisplayBooks = (function () {
                         ${obj.items[j].volumeInfo.title}
                     </div>
                     <div bookThumbnail__author>
-                        ${obj.items[j].volumeInfo.authors[0]}
+                        ${author}
                     </div>
                 </a>`
                 document.getElementsByClassName('mainPage__books')[0].appendChild(div);  

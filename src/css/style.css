@@ -325,5 +325,8 @@ body, html {
     text-decoration: none;
     color: black;
   }
+  .mainPageContainer .mainPageAside .mainPageAside__generes a:hover {
+    cursor: pointer;
+  }
 }
 /*# sourceMappingURL=style.css.map */
