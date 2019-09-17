@@ -228,6 +228,7 @@ body, html {
     display: -ms-flexbox;
     display: flex;
     width: 95%;
+    height: 100%;
     margin-top: 2rem;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -304,6 +305,7 @@ body, html {
     display: -ms-flexbox;
     display: flex;
     width: 30%;
+    height: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -317,15 +319,22 @@ body, html {
     font-family: 'Oswald', sans-serif;
   }
   .mainPageContainer .mainPageAside .mainPageAside__generes {
-    text-align: justify;
+    text-align: center;
     line-height: 2rem;
     margin: 1.1rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
-  .mainPageContainer .mainPageAside .mainPageAside__generes a {
+  .mainPageContainer .mainPageAside .mainPageAside__generes .recommendedBook {
+    margin-bottom: 1.5rem;
+  }
+  .mainPageContainer .mainPageAside .mainPageAside__generes .recommendedBook a {
     text-decoration: none;
     color: black;
+    margin-bottom: 2rem;
   }
-  .mainPageContainer .mainPageAside .mainPageAside__generes a:hover {
+  .mainPageContainer .mainPageAside .mainPageAside__generes .recommendedBook a:hover {
     cursor: pointer;
   }
 }
