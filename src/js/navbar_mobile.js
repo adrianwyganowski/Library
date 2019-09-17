@@ -6,6 +6,8 @@ MYAPP.NavbarMobile = (function() {
         container : document.getElementsByClassName('container')[0],
         hamburgerButton : document.getElementsByClassName('hamburgerButton')[0],
         navExitButton : document.getElementsByClassName('navigation__list--exitButton')[0],
+        searchButton : document.getElementsByClassName('menuSearch__searchButton')[0],
+        searchInput : document.getElementsByClassName('menuSearch__searchInput')[0]
     };
     (function(){
         if (window.innerWidth < 900){
@@ -48,8 +50,23 @@ MYAPP.NavbarMobile = (function() {
         DOM.navbar.style.width = '0rem';
         DOM.container.style.marginLeft = '0rem';
     }
+    function eventListnerOfSearch() {
+        DOM.searchButton.addEventListener('click',search)
+        DOM.searchInput.addEventListener('keypress',function(e){
+            if (e.keyCode === 13){
+                search();
+            }
+        })
+    }
+    function search(){
+        if(DOM.searchInput.value !== ''){
+            sessionStorage.setItem('search',DOM.searchInput.value)
+            window.open('index.html','_self');
+        }; 
+    }
     function init() {
         eventCheckSizeOfWindow();
+        eventListnerOfSearch()
     }
     return {
        init: init,

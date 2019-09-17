@@ -15,7 +15,6 @@ body,html{
     padding-top: 3rem;
     z-index: 1;
     overflow-x: hidden;
-
     background-color: #bfb086;
     transition: 0.5s;
 
@@ -162,9 +161,21 @@ body,html{
             a:focus{
                 outline:none;
             }
+            .menuSearch{
+            display: flex;
+            align-items: center;
+                .menuSearch__searchInput{
+                    height: 1.5rem;
+                }
+                .menuSearch__searchButton{
+                    font-size: 1.2rem;
+                }
+            }
+            
             .navigation__list--exitButton{
                 display: none;
             }
+            
         }
     }
     .mainPageContainer{
@@ -239,6 +250,10 @@ body,html{
                 line-height: 2rem;
                 margin: 1.1rem;
                 justify-content: center;
+                .mainPageAside__generes--link:hover{
+                    cursor: pointer;
+                }
+                
                .recommendedBook{
                     margin-bottom: 1.5rem;
 

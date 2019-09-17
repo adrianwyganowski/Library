@@ -220,6 +220,20 @@ body, html {
   .navigation .navigation__list a:focus {
     outline: none;
   }
+  .navigation .navigation__list .menuSearch {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navigation .navigation__list .menuSearch .menuSearch__searchInput {
+    height: 1.5rem;
+  }
+  .navigation .navigation__list .menuSearch .menuSearch__searchButton {
+    font-size: 1.2rem;
+  }
   .navigation .navigation__list .navigation__list--exitButton {
     display: none;
   }
@@ -325,6 +339,9 @@ body, html {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  .mainPageContainer .mainPageAside .mainPageAside__generes .mainPageAside__generes--link:hover {
+    cursor: pointer;
   }
   .mainPageContainer .mainPageAside .mainPageAside__generes .recommendedBook {
     margin-bottom: 1.5rem;

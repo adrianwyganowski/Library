@@ -28,8 +28,11 @@ MYAPP.DisplayBooks = (function () {
                     <div class='bookThumbnail__title'>
                         ${obj.items[j].volumeInfo.title}
                     </div>
-                    <div bookThumbnail__author>
+                    <div class='bookThumbnail__author'>
                         ${author}
+                    </div>
+                    <div>
+                        ${obj.items[j].volumeInfo.pageCount / 5} zł
                     </div>
                 </a>`
                 document.getElementsByClassName('mainPage__books')[0].appendChild(div);  
@@ -66,7 +69,11 @@ if(sessionStorage.getItem('genere') !== null){
     document.getElementsByClassName('mainPageMain__header--text')[0].innerHTML = `${sessionStorage.getItem('genere')}:`;
     sessionStorage.removeItem('genere');
 }
+else if (sessionStorage.getItem('search') !== null){
+    MYAPP.DisplayBooks.booksForIndex([sessionStorage.getItem('search')]);
+    sessionStorage.removeItem('search');
+}
 else{
-    MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:1775412490','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn=0575086254']);
+    MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn:1775412490']);
 }
 MYAPP.DisplayBooks.generesForIndex(['Art','Biography','Business','Classics','Fantasy','Fiction','History','Horror','Music','Mystery','Poetry','Psychology','Romance','Sport','Thriller','Travel'])
