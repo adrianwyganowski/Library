@@ -1,5 +1,6 @@
+"use strict"
 MYAPP.CreateUser = (function(){
-    "use strict"
+   
     let idNumber = 0;
     function createUser(email, password) {
        

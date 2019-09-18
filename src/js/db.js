@@ -1,5 +1,5 @@
+"use strict"
 MYAPP.Db = (function () {
-    "use strict"
     let db = [ ];
     function checkSessionStorage(){
         if(sessionStorage.length != 1)

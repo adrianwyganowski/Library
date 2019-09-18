@@ -299,7 +299,7 @@ body, html {
   .mainPageContainer .mainPageMain .mainPage__books .bookThumbnail a .bookThumbnail__author:hover {
     opacity: 1;
   }
-  .mainPageContainer .mainPageMain .mainPage__books .specificBook {
+  .mainPageContainer .mainPage__book .specificBook {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -308,10 +308,10 @@ body, html {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .mainPageContainer .mainPageMain .mainPage__books .specificBook .specificBook__bookCover {
+  .mainPageContainer .mainPage__book .specificBook .specificBook__bookCover {
     margin: 1rem;
   }
-  .mainPageContainer .mainPageMain .mainPage__books .specificBook .specificBook__information {
+  .mainPageContainer .mainPage__book .specificBook .specificBook__information {
     text-align: justify;
   }
   .mainPageContainer .mainPageAside {

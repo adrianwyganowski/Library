@@ -1,5 +1,6 @@
+"use strict"
 MYAPP.Login =(function() {
-    "use strict"
+
     let DOM = {
         email :  document.getElementsByClassName('formLogin__label--email')[0],
         password : document.getElementsByClassName('formLogin__label--password')[0],

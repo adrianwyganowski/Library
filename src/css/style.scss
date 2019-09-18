@@ -220,18 +220,19 @@ body,html{
                         }
                     }
                 }
-                .specificBook{
-                    display: flex;
-                    flex-direction: row;  
-                    .specificBook__bookCover{
-                        margin: 1rem;
-                    }
-                    .specificBook__information{
-                        text-align: justify;
-                      
-                    }
+                
+            }
+        }
+        .mainPage__book{
+            .specificBook{
+                display: flex;
+                flex-direction: row;  
+                .specificBook__bookCover{
+                    margin: 1rem;
                 }
-
+                .specificBook__information{
+                    text-align: justify;    
+                }
             }
         }
         .mainPageAside{

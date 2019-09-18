@@ -31,8 +31,11 @@ MYAPP.BookDetails = (function () {
             <div class='specificBook__information--price'>
                 ${Math.floor(price / 5 + 10)} zł
             </div>
+            <button class='specificBook__information--buyButton'>
+                Purchase
+            </button>
         </main>`
-        document.getElementsByClassName('mainPage__books')[0].appendChild(div);
+        document.getElementsByClassName('mainPage__book')[0].appendChild(div);
         displayRecommendedBooks(author)
     }
     async function displayRecommendedBooks(connection){

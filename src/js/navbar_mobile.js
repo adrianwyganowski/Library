@@ -1,6 +1,7 @@
+"use strict";
 MYAPP.NavbarMobile = (function() {
-    "use strict";
-    var DOM ={
+ 
+    const DOM ={
         navbarMobileIsOn: true,
         navbar : document.getElementsByClassName('navigation')[0],
         container : document.getElementsByClassName('container')[0],
@@ -62,10 +63,10 @@ MYAPP.NavbarMobile = (function() {
         if(DOM.searchInput.value !== ''){
             window.open('index.html','_self');
             sessionStorage.setItem('search',DOM.searchInput.value);
-            console.log('eldo');
+           
             
         } else{
-            console.log('wpisz cos')
+            console.log('wpisz cos')// alert
         }
     }
     function init() {

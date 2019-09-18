@@ -1,5 +1,6 @@
+"use strict";
 MYAPP.Register = (function() {
-    "use strict";
+
     var DOM = {
         email :  document.getElementsByClassName('formRegister__label--email')[0],
         password : document.getElementsByClassName('formRegister__label--password')[0],
