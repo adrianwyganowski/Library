@@ -7,7 +7,7 @@ MYAPP.BookDetails = (function () {
         const reuqest = link + book + key;
         const response = await fetch(reuqest);
         const obj = await response.json();
-        const author = checkIfDataIsNull(obj.items[0].volumeInfo.authors[0]);
+        const author = checkIfAuthorIsNull(obj.items[0].volumeInfo.authors);
         const imgSrc = checkIfImgSrcIsNull(obj.items[0].volumeInfo.imageLinks);
         const title = checkIfDataIsNull(obj.items[0].volumeInfo.title);
         const description = checkIfDataIsNull(obj.items[0].volumeInfo.description);
@@ -29,7 +29,7 @@ MYAPP.BookDetails = (function () {
                 <p>${description}<p> 
             </div>
             <div class='specificBook__information--price'>
-                ${price / 5} zł
+                ${Math.floor(price / 5 + 10)} zł
             </div>
         </main>`
         document.getElementsByClassName('mainPage__books')[0].appendChild(div);
@@ -47,17 +47,21 @@ MYAPP.BookDetails = (function () {
                 sessionStorage.setItem('isbn',`${obj.items[i].volumeInfo.industryIdentifiers[0].identifier}`);
                 window.open('book.html','_self') ;
             })
-            const author = checkIfDataIsNull(obj.items[i].volumeInfo.authors[0]);
+            const author = checkIfAuthorIsNull(obj.items[i].volumeInfo.authors);
             const imgSrc = checkIfImgSrcIsNull(obj.items[i].volumeInfo.imageLinks);
             const title = checkIfDataIsNull(obj.items[i].volumeInfo.title);
+            const price = checkIfDataIsNull(obj.items[i].volumeInfo.pageCount);
             div.innerHTML = 
             `<a>
                 <img src='${imgSrc}' alt='Thumbnail photo of "${title}"'>
                 <div class='bookThumbnail__title'>
                     ${title}
                 </div>
-                <div bookThumbnail__author>
+                <div class="bookThumbnail__author">
                     ${author}
+                </div>
+                <div class='bookThumbnail__price'>
+                    ${Math.floor(price / 5 + 10)} zł 
                 </div>
             </a>`
             document.getElementsByClassName('mainPageAside__generes')[0].appendChild(div);
@@ -79,6 +83,15 @@ MYAPP.BookDetails = (function () {
         }
         else{
             return data.thumbnail;
+        }
+    }
+    function checkIfAuthorIsNull(data){
+        if (typeof data == "undefined"){
+            let result = '';
+            return result;
+        }
+        else{
+            return data[0];
         }
     }
     function bookForBookDetails(book){

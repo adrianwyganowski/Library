@@ -60,9 +60,13 @@ MYAPP.NavbarMobile = (function() {
     }
     function search(){
         if(DOM.searchInput.value !== ''){
-            sessionStorage.setItem('search',DOM.searchInput.value)
             window.open('index.html','_self');
-        }; 
+            sessionStorage.setItem('search',DOM.searchInput.value);
+            console.log('eldo');
+            
+        } else{
+            console.log('wpisz cos')
+        }
     }
     function init() {
         eventCheckSizeOfWindow();

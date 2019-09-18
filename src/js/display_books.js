@@ -1,38 +1,35 @@
 "use strict";
 MYAPP.DisplayBooks = (function () {
-    let link = 'https://www.googleapis.com/books/v1/volumes?q=';
-    let key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
+    const link = 'https://www.googleapis.com/books/v1/volumes?q=';
+    const key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
     async function displayBooks(books){ 
         for (let i = 0; i < books.length;i++)
         {
-            let reuqest = link + books[i] + key; 
-            let response = await fetch(reuqest);
-            let obj = await response.json();
+            const reuqest = link + books[i] + key; 
+            const response = await fetch(reuqest);
+            const obj = await response.json();
             for (let j = 0; j < obj.totalItems; j++){
-                let div = document.createElement('div');
-                let author;
+                const div = document.createElement('div');
+                const author = checkIfAuthorIsNull(obj.items[j].volumeInfo.authors);
+                const imgSrc = checkIfImgSrcIsNull(obj.items[j].volumeInfo.imageLinks);
+                const title = checkIfDataIsNull(obj.items[j].volumeInfo.title);
+                const price = checkIfDataIsNull(obj.items[j].volumeInfo.pageCount);
                 div.className = 'bookThumbnail';
                 div.addEventListener('click',function(){
                     sessionStorage.setItem('isbn',`${obj.items[j].volumeInfo.industryIdentifiers[0].identifier}`);
                     window.open('book.html','_self') ;
                 })
-                if (typeof obj.items[j].volumeInfo.authors == "undefined"){
-                    author = '';
-                }
-                else{
-                     author =obj.items[j].volumeInfo.authors[0];
-                }
                 div.innerHTML =
                 `<a href='#'>
-                    <img src='${obj.items[j].volumeInfo.imageLinks.thumbnail}' alt='Thumbnail photo of "${obj.items[j].volumeInfo.title}"'>
+                    <img src='${imgSrc}' alt='Thumbnail photo of "${title}"'>
                     <div class='bookThumbnail__title'>
-                        ${obj.items[j].volumeInfo.title}
+                        ${title}
                     </div>
                     <div class='bookThumbnail__author'>
                         ${author}
                     </div>
                     <div>
-                        ${obj.items[j].volumeInfo.pageCount / 5} zł
+                        ${Math.floor(price / 5 + 10)} zł
                     </div>
                 </a>`
                 document.getElementsByClassName('mainPage__books')[0].appendChild(div);  
@@ -52,6 +49,33 @@ MYAPP.DisplayBooks = (function () {
             })
             document.getElementsByClassName('mainPageAside__generes')[0].appendChild(a);
         } 
+    }
+    function checkIfDataIsNull(data){
+        if (typeof data == "undefined"){
+            let result = '';
+            return result;
+        }
+        else{
+            return data;
+        }
+    }
+    function checkIfImgSrcIsNull(data){
+        if (typeof data == "undefined"){
+            let result = '';
+            return result;
+        }
+        else{
+            return data.thumbnail;
+        }
+    }
+    function checkIfAuthorIsNull(data){
+        if (typeof data == "undefined"){
+            let result = '';
+            return result;
+        }
+        else{
+            return data[0];
+        }
     }
     function booksForIndex(books) {
         displayBooks(books);
