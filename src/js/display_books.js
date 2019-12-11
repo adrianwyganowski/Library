@@ -3,17 +3,18 @@ MYAPP.DisplayBooks = (function () {
     const link = 'https://www.googleapis.com/books/v1/volumes?q=';
     const key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
     async function displayBooks(books){ 
-        for (let i = 0; i < books.length;i++)
+        for (let i = 0; i <  books.length ;i++)
         {
             const reuqest = link + books[i] + key; 
             const response = await fetch(reuqest);
             const obj = await response.json();
-            for (let j = 0; j < obj.totalItems; j++){
+            for (let j = 0; j < obj.items.length; j++){
+                console.log(obj);
                 const div = document.createElement('div');
-                const author = checkIfAuthorIsNull(obj.items[j].volumeInfo.authors);
-                const imgSrc = checkIfImgSrcIsNull(obj.items[j].volumeInfo.imageLinks);
-                const title = checkIfDataIsNull(obj.items[j].volumeInfo.title);
-                const price = checkIfDataIsNull(obj.items[j].volumeInfo.pageCount);
+                const author = checkIfAuthorIsUndefined(obj.items[j].volumeInfo.authors);
+                const imgSrc = checkIfImgSrcIsUndefined(obj.items[j].volumeInfo.imageLinks);
+                const title = checkIfDataIsUndefined(obj.items[j].volumeInfo.title);
+                const price = checkIfDataIsUndefined(obj.items[j].volumeInfo.pageCount);
                 div.className = 'bookThumbnail';
                 div.addEventListener('click',function(){
                     sessionStorage.setItem('isbn',`${obj.items[j].volumeInfo.industryIdentifiers[0].identifier}`);
@@ -28,7 +29,7 @@ MYAPP.DisplayBooks = (function () {
                     <div class='bookThumbnail__author'>
                         ${author}
                     </div>
-                    <div>
+                    <div class='bookThumbnail__price'>
                         ${Math.floor(price / 5 + 10)} zł
                     </div>
                 </a>`
@@ -50,7 +51,7 @@ MYAPP.DisplayBooks = (function () {
             document.getElementsByClassName('mainPageAside__generes')[0].appendChild(a);
         } 
     }
-    function checkIfDataIsNull(data){
+    function checkIfDataIsUndefined(data){
         if (typeof data == "undefined"){
             let result = '';
             return result;
@@ -59,7 +60,7 @@ MYAPP.DisplayBooks = (function () {
             return data;
         }
     }
-    function checkIfImgSrcIsNull(data){
+    function checkIfImgSrcIsUndefined(data){
         if (typeof data == "undefined"){
             let result = '';
             return result;
@@ -68,7 +69,7 @@ MYAPP.DisplayBooks = (function () {
             return data.thumbnail;
         }
     }
-    function checkIfAuthorIsNull(data){
+    function checkIfAuthorIsUndefined(data){
         if (typeof data == "undefined"){
             let result = '';
             return result;
@@ -98,6 +99,6 @@ else if (sessionStorage.getItem('search') !== null){
     sessionStorage.removeItem('search');
 }
 else{
-    MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn:1775412490']);
+     MYAPP.DisplayBooks.booksForIndex(['isbn:0141923474','isbn:0316769177','isbn:1580493939','isbn:0684865130','isbn:0393239195','isbn:1101658053','isbn:9781407021010','isbn:1775412490']);
 }
 MYAPP.DisplayBooks.generesForIndex(['Art','Biography','Business','Classics','Fantasy','Fiction','History','Horror','Music','Mystery','Poetry','Psychology','Romance','Sport','Thriller','Travel'])

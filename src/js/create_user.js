@@ -1,9 +1,14 @@
 "use strict"
 MYAPP.CreateUser = (function(){
-   
-    let idNumber = 0;
+
     function createUser(email, password) {
-       
+
+        let idNumber = 0;
+        for (let i = 1; i < 100; i++){
+            if (sessionStorage.getItem(`id${i}`) !== null){
+                idNumber = i;
+            }
+        }
         let obj = {
             id : ++idNumber,
             email : email,

@@ -4,7 +4,6 @@ MYAPP.NavbarMobile = (function() {
     const DOM ={
         navbarMobileIsOn: true,
         navbar : document.getElementsByClassName('navigation')[0],
-        container : document.getElementsByClassName('container')[0],
         hamburgerButton : document.getElementsByClassName('hamburgerButton')[0],
         navExitButton : document.getElementsByClassName('navigation__list--exitButton')[0],
         searchButton : document.getElementsByClassName('menuSearch__searchButton')[0],
@@ -32,7 +31,6 @@ MYAPP.NavbarMobile = (function() {
             DOM.navbarMobileIsOn = false;
             DOM.navbar.style.width = '100%';
             DOM.navbar.style.height = '4rem';
-            DOM.container.style.marginLeft = '0';
         }
     }
     function addEventListners(){
@@ -44,12 +42,12 @@ MYAPP.NavbarMobile = (function() {
         DOM.navExitButton.removeEventListener("click", closeMenu);
    }
     function openMenu(){
-        DOM.navbar.style.width = '10rem';
-        DOM.container.style.marginLeft = '10rem'; 
+        document.body.classList.add('stop-scrolling');
+        DOM.navbar.style.width = '10rem';    
     }
     function closeMenu(){
+        document.body.classList.remove('stop-scrolling');
         DOM.navbar.style.width = '0rem';
-        DOM.container.style.marginLeft = '0rem';
     }
     function eventListnerOfSearch() {
         DOM.searchButton.addEventListener('click',search)
@@ -62,11 +60,10 @@ MYAPP.NavbarMobile = (function() {
     function search(){
         if(DOM.searchInput.value !== ''){
             window.open('index.html','_self');
-            sessionStorage.setItem('search',DOM.searchInput.value);
-           
-            
-        } else{
-            console.log('wpisz cos')// alert
+            sessionStorage.setItem('search',DOM.searchInput.value);    
+        } 
+        else{
+            console.log('You can not search empty field')// alert
         }
     }
     function init() {

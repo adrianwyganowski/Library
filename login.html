@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Library</title> 
     <link rel="stylesheet" href="src/css/style.css" type="text/css"/>
-
+    <link href="https://fonts.googleapis.com/css?family=Gupter|Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class='hamburgerButton'>
@@ -24,22 +24,47 @@
 
         </div>
     </nav>
-<div class='container '>
-        <div class='account'>
-            <div class='account__header'>
-                Login:
-            </div>
-            <form class='formLogin'> 
-                <div class='formLogin__label'>
-                    <label>Email:</label><input class='formLogin__label--email' type='text'>
-                </div>
-                <div class='formLogin__label'>
-                    <label>Password:</label> <input class='formLogin__label--password' type='password'>
-                </div> 
-                <button class='formLogin_button' type='button' >Login</button>
-            </form>
+<div class='container'>
+    <div class='account'>
+        <div class='account__header'>
+            Login:
         </div>
+        <form class='formLogin'> 
+            <div class='formLogin__label'>
+                <label>Email:</label><input class='formLogin__label--email formInput' type='text' value="abc@abc.pl">
+            </div>
+            <div class='formLogin__label'>
+                <label>Password:</label> <input class='formLogin__label--password formInput' type='password' value="password123">
+            </div> 
+            <button class='formLogin_button formButton' type='button' >Login</button>
+        </form>
     </div>
+</div>
+<footer class='footer'>
+    <div class='footerLinks'>
+        <p class="footerLinks--header">Customer Service</p>
+        <a class='footerLinks--link' href="#">Shipping</a>
+        <a class='footerLinks--link' href="#">In-Store Pickup</a>
+        <a class='footerLinks--link' href="#">FAQs</a>
+        <a class='footerLinks--link' href="#">Returns & Exchanges</a>
+        <a class='footerLinks--link' href="#">Terms & Conditions</a>
+        <a class='footerLinks--link' href="#">Privacy Policy</a>
+    </div>
+    <div class='footerLinks'>
+            <p class="footerLinks--header">Account Info</p>
+            <a class='footerLinks--link' href="#">My Account</a>
+            <a class='footerLinks--link' href="#">Order Status</a>
+            <a class='footerLinks--link' href="#">Viev Cart</a>
+    </div>
+    <div class='footerLinks'>
+            <p class="footerLinks--header">Company Info</p>
+            <a class='footerLinks--link' href="#">About Us</a>
+            <a class='footerLinks--link' href="#">Location</a>
+            <a class='footerLinks--link' href="#">Careers</a>
+            <a class='footerLinks--link' href="#">Blog</a>
+    </div>
+</footer>
+
     
 <script type="text/javascript" src="src/js/global.js"></script>
 <script type="text/javascript" src="src/js/navbar_mobile.js"></script>    

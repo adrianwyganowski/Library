@@ -11,7 +11,7 @@ MYAPP.Register = (function() {
         DOM.submitButton.addEventListener('click',fetchDataToValidAndSend);
     }
     function fetchDataToValidAndSend(){
-        sendPasswordToDb(validEmail(DOM.email.value),validPassword(DOM.password.value, DOM.passwordToMatch.value));
+        sendUserToDb(validEmail(DOM.email.value),validPassword(DOM.password.value, DOM.passwordToMatch.value));
     }
     function validEmail(email){
         let check = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -31,9 +31,9 @@ MYAPP.Register = (function() {
                 return password;
             }                            
             else{
-                alert('A password must contain at least 7 characters but not more than 17. First character must be Uppercase');
+                alert('A password must contain at least 7 characters but not more than 17, and conatain at least one letter');
                 DOM.password.value = ''; 
-                DOM.passwordToMatch.value = '';   // here i should do break case to check what is wrong with password for e.g. if password has less than 7 letters give altert like "your password should have more than 7 letters"
+                DOM.passwordToMatch.value = '';  
             }
         }
         else{
@@ -42,31 +42,31 @@ MYAPP.Register = (function() {
             DOM.passwordToMatch.value = '';
         }
     }
-    function sendPasswordToDb(emailPromise,passwordPromise){
+    function sendUserToDb(emailPromise,passwordPromise){
         return Promise.all ([emailPromise,passwordPromise])
         .then(function(values){
-            if(values[0] === null || values[1] === null){
+            console.log(values[0] + " mail " + values[1] + "  pass");
+            if(values[0] === null || values[1] === undefined  || null){
                 return;
             }
-            MYAPP.CreateUser.createUser(values[0],values[1]);
-            alert('Your account has been created');
-
+            else{
+                MYAPP.CreateUser.createUser(values[0],values[1]);
+                alert('Your account has been created');
+            }
         })
     }
     function checkIfUnique(value, msg)
     {
         let dbAccess = MYAPP.Db.dbAccess();
         let dbLength = MYAPP.Db.dbLength();
-        if(dbLength >= 1){   
-            for (let i = 0; i <= dbLength; i++){
+        if(dbLength >= 1){  
+            for (let i = 0; i < dbLength; i++){
                 if (value === dbAccess[i][1]){
                     alert(msg);
                     return null;
                 }
             }
-            console.log('dlugosc wiecej niz jeden');
         }
-        
         return value;
     }
     function init() {

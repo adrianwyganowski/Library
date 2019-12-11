@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Library</title> 
     <link rel="stylesheet" href="src/css/style.css" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gupter|Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class='hamburgerButton'>
@@ -23,10 +23,17 @@
         <button class='menuSearch__searchButton'>&#128270;</button>    
     </div>
 </nav>
-<div class='container '>
+<div class='container'>
+        <div class='mainPageBanner'>
+            <img src="src/img/mainPageBanner.jpg" alt="books">
+            <p class="mainPageBanner__title">Library</p>
+            <div class="mainPageBanner__title--line"></div>
+            <p class="mainPageBanner__info">Online bookstore</p>
+            <div class="mainPageBanner__info--line"></div>
+        </div>
     <div class='mainPageContainer'>
         <main class='mainPageMain'>
-            <header class=mainPageMain__header>
+            <header class="mainPageMain__header">
                 <h2 class='mainPageMain__header--text'>Recommended books:</h2>
             </header>
             <div class='mainPage__books'>
@@ -35,7 +42,7 @@
         </main>
         <aside class='mainPageAside'>
             <header class='mainPageAside__header'>
-                <h2>Genres:</h2>
+                <h2 class='mainPageAside__header--text'>Genres:</h2>
             </header>
             <div class='mainPageAside__generes'>
 
@@ -43,6 +50,30 @@
         </aside>
     </div>
 </div>
+<footer class='footer'>
+        <div class='footerLinks'>
+            <p class="footerLinks--header">Customer Service</p>
+            <a class='footerLinks--link' href="#">Shipping</a>
+            <a class='footerLinks--link' href="#">In-Store Pickup</a>
+            <a class='footerLinks--link' href="#">FAQs</a>
+            <a class='footerLinks--link' href="#">Returns & Exchanges</a>
+            <a class='footerLinks--link' href="#">Terms & Conditions</a>
+            <a class='footerLinks--link' href="#">Privacy Policy</a>
+        </div>
+        <div class='footerLinks'>
+                <p class="footerLinks--header">Account Info</p>
+                <a class='footerLinks--link' href="#">My Account</a>
+                <a class='footerLinks--link' href="#">Order Status</a>
+                <a class='footerLinks--link' href="#">Viev Cart</a>
+        </div>
+        <div class='footerLinks'>
+                <p class="footerLinks--header">Company Info</p>
+                <a class='footerLinks--link' href="#">About Us</a>
+                <a class='footerLinks--link' href="#">Location</a>
+                <a class='footerLinks--link' href="#">Careers</a>
+                <a class='footerLinks--link' href="#">Blog</a>
+        </div>
+    </footer>
 <script type="text/javascript" src="src/js/global.js"></script>  
 <script type="text/javascript" src="src/js/navbar_mobile.js"></script> 
 <script type="text/javascript" src="src/js/db.js"></script> 

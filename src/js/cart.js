@@ -25,11 +25,16 @@ MYAPP.Cart = (function() {
         }
     }
     function purchaseBook(){
-        const bookISBN = sessionStorage.getItem('isbn');
-        const cart = checkIfCartExist();
-        const cartWithPurchasedBook = `${cart}${bookISBN},`;
-        sessionStorage.setItem('cart', JSON.stringify(cartWithPurchasedBook));
-        howManyItemsInCart();
+        if (sessionStorage.getItem('logged') !== null){
+            const bookISBN = sessionStorage.getItem('isbn');
+            const cart = checkIfCartExist();
+            const cartWithPurchasedBook = `${cart}${bookISBN},`;
+            sessionStorage.setItem('cart', JSON.stringify(cartWithPurchasedBook));
+            howManyItemsInCart();
+        }
+       else{
+           alert('Firstly you need login to buy book')
+       }
     }
     function howManyItemsInCart(){
         const cart =  JSON.parse(sessionStorage.getItem('cart'));

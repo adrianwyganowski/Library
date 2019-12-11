@@ -7,18 +7,18 @@ MYAPP.BookDetails = (function () {
         const reuqest = link + book + key;
         const response = await fetch(reuqest);
         const obj = await response.json();
-        const author = checkIfAuthorIsNull(obj.items[0].volumeInfo.authors);
-        const imgSrc = checkIfImgSrcIsNull(obj.items[0].volumeInfo.imageLinks);
-        const title = checkIfDataIsNull(obj.items[0].volumeInfo.title);
-        const description = checkIfDataIsNull(obj.items[0].volumeInfo.description);
-        const price = checkIfDataIsNull(obj.items[0].volumeInfo.pageCount);
+        const author = checkIfAuthorIsUndefined(obj.items[0].volumeInfo.authors);
+        const imgSrc = checkIfImgSrcIsUndefined(obj.items[0].volumeInfo.imageLinks);
+        const title = checkIfDataIsUndefined(obj.items[0].volumeInfo.title);
+        const description = checkIfDataIsUndefined(obj.items[0].volumeInfo.description);
+        const price = checkIfDataIsUndefined(obj.items[0].volumeInfo.pageCount);
         const div = document.createElement('div');
         div.className = 'specificBook';
         div.innerHTML = 
         `<div class="specificBook__bookCover"> 
             <img src='${imgSrc}' alt='Thumbnail photo of "${title}"'>
         </div>
-        <main class='specificBook__information'>
+        <div class='specificBook__information'>
             <div class="specificBook__information--name">
                 <h2>${title}</h2>
             </div>
@@ -34,7 +34,7 @@ MYAPP.BookDetails = (function () {
             <button class='specificBook__information--buyButton'>
                 Purchase
             </button>
-        </main>`
+        </div>`
         document.getElementsByClassName('mainPage__book')[0].appendChild(div);
         displayRecommendedBooks(author)
     }
@@ -50,10 +50,10 @@ MYAPP.BookDetails = (function () {
                 sessionStorage.setItem('isbn',`${obj.items[i].volumeInfo.industryIdentifiers[0].identifier}`);
                 window.open('book.html','_self') ;
             })
-            const author = checkIfAuthorIsNull(obj.items[i].volumeInfo.authors);
-            const imgSrc = checkIfImgSrcIsNull(obj.items[i].volumeInfo.imageLinks);
-            const title = checkIfDataIsNull(obj.items[i].volumeInfo.title);
-            const price = checkIfDataIsNull(obj.items[i].volumeInfo.pageCount);
+            const author = checkIfAuthorIsUndefined(obj.items[i].volumeInfo.authors);
+            const imgSrc = checkIfImgSrcIsUndefined(obj.items[i].volumeInfo.imageLinks);
+            const title = checkIfDataIsUndefined(obj.items[i].volumeInfo.title);
+            const price = checkIfDataIsUndefined(obj.items[i].volumeInfo.pageCount);
             div.innerHTML = 
             `<a>
                 <img src='${imgSrc}' alt='Thumbnail photo of "${title}"'>
@@ -70,7 +70,7 @@ MYAPP.BookDetails = (function () {
             document.getElementsByClassName('mainPageAside__generes')[0].appendChild(div);
         }
     }
-    function checkIfDataIsNull(data){
+    function checkIfDataIsUndefined(data){
         if (typeof data == "undefined"){
             let result = '';
             return result;
@@ -79,7 +79,7 @@ MYAPP.BookDetails = (function () {
             return data;
         }
     }
-    function checkIfImgSrcIsNull(data){
+    function checkIfImgSrcIsUndefined(data){
         if (typeof data == "undefined"){
             let result = '';
             return result;
@@ -88,7 +88,7 @@ MYAPP.BookDetails = (function () {
             return data.thumbnail;
         }
     }
-    function checkIfAuthorIsNull(data){
+    function checkIfAuthorIsUndefined(data){
         if (typeof data == "undefined"){
             let result = '';
             return result;

@@ -19,15 +19,12 @@ MYAPP.Login =(function() {
                 if(database[i][2] === passwordToFind){
                     alert('Login successful')
                     sessionStorage.setItem('logged',(i+1));
+                    return
                 }
-                else{
-                    alert('Your email or password are incorrect');
-                } 
-            }
-            else{   
-                alert('Your email or password are incorrect');
             }
         }
+        alert('Your email or password are incorrect');
+        return
     }
     function init(){
         eventSubmitButton();

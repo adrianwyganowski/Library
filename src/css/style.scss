@@ -1,21 +1,47 @@
+$base-color: #DFDDC7;
+$second-color: #211717;
+$third-color: #262626;
+$active-color: #F58B54;
+$header-font: 'Gupter', serif;
+$normal-font: 'Raleway', sans-serif;
+
 body,html{
-    font-family: 'Raleway', sans-serif;
     margin: 0;
     height: 100%;
+
+    font-family: $normal-font;
 }
-.hamburgerButton{
-    font-size: 2rem;
-}
-.navigation{
+
+.stop-scrolling{
     height: 100%;
-    width: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hamburgerButton{
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 3rem;
     z-index: 1;
+
+    font-size: 2rem;
+}
+
+.navigation{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    height: 100%;
+    width: 0;
+    padding-top: 3rem;
     overflow-x: hidden;
-    background-color: #bfb086;
+
+    background-color: $second-color;
+    
+    font-family: $header-font;
+
     transition: 0.5s;
 
     .navigation__list{
@@ -25,75 +51,306 @@ body,html{
         a{
             display: block;
             margin: 1rem;
-            text-align: center;
+            outline:none;
 
+            color: $base-color;
+
+            text-align: center;
             text-decoration: none;
-            color:black;
             font-size: 1.5rem;
-            opacity: 0.8;
-            outline:none; // need to fix this blue background after click <- this should work but it's doesn't
         }
+
         a:hover{
-            opacity: 1;
+            color:$active-color;
         }
+
         a:focus{
             outline:none;
         }
+
         .navigation__list--exitButton{
             position: absolute;
             top: 1rem;
             left: 1rem;
         }
+
+        .menuSearch__searchInput{
+            height: 2rem;
+            width: 6.5rem;
+            border: 0;
+            padding-left: 0.4rem;
+
+            color: $second-color;
+            background: $base-color;
+
+            font-weight: bold;
+        }
+
+        .menuSearch__searchButton{
+            height: 2.1rem;
+            width: 5rem;
+            border: 0;
+            margin-left: 1rem;
+
+            color: $second-color;
+            background: $active-color;
+
+            font-size: 1.2rem;
+        }
     }
 }
 .container{
-    transition: margin 0.5s;
-    padding: 1rem;
     width: 100%;
-    height: 100%;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+
+    background-color: $base-color;
+
+    transition: margin 0.5s;
+
+    .mainPageBanner{
+        position: relative;
+        overflow: hidden;
+
+        width: 100%;
+        margin-top: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color:white;
+
+        .mainPageBanner__title{
+            position: absolute;
+            top:25%;
+
+            margin:0;
+            
+            font-size: 4rem;
+            text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+        }
+
+        .mainPageBanner__title--line{
+            position: absolute;
+            top:42%;
+            
+            width: 42%;
+            height: 2px;
+
+            background: #ffffff;
+        }
+
+        .mainPageBanner__info{
+            position: absolute;
+            top:45%;
+
+            margin:0;
+        
+            font-size: 2.5rem;
+            text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+        }
+
+        .mainPageBanner__info--line{
+            position: absolute;
+            top:58%;
+            
+            width: 80%;
+            height: 2px;
+
+            background: #ffffff;
+        }
+    }
 }
 .mainPageContainer{
     width: 100%;
     margin-top: 2rem;
+
     .mainPageMain{
         width: 100%;
-        align-items: center;
+       
+        
         .mainPageMain__header{
-            font-family: 'Oswald', sans-serif;
+            width: 100%;
+            padding: 0.1rem 0 0.1rem;
+
+            background: $second-color;
+            color: $base-color;
+
+            text-transform: uppercase;
+
+            .mainPageMain__header--text{
+                margin-left: 1rem;
+            }
         }
         .mainPage__books{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
+            margin:0.1rem;
+
             .bookThumbnail{
+                padding: 20px 5px 5px;
+                width: 45%;
+                margin-right: 2%;
+                margin-top:2rem;
+
+                background: $second-color;
+
                 text-align: center;
-                width: 50%;
+
                 a{
                     text-decoration: none;
-                    color:black;
+                    color:$base-color;
 
                     .bookThumbnail__title{
-                        font-size: 1.2rem;
                         opacity: 0.8;
+
+                        font-weight: bold;
+                        font-size: 1.3rem;
                     }
-                    .bookThumbnail__title:hover{
-                        opacity: 1;
-                    }
+
                     .bookThumbnail__author{
                         opacity: 0.8;
                     }
-                    .bookThumbnail__author:hover{
+
+                    .bookThumbnail__price{
+                        color:$active-color;
+
+                        font-weight: bold;
+                    }
+                }
+
+                a:hover{
+                    .bookThumbnail__title{
+                        opacity: 1;
+                    }
+                    .bookThumbnail__author{
                         opacity: 1;
                     }
                 }
-            
+            }
+            .bookThumbnail:hover{
+                background: lighten($second-color, 5%);
+            }
+
+        }
+        .specificBook{
+            display: flex;
+            flex-direction: column;  
+            justify-content: center;
+
+            .specificBook__bookCover{  
+                display: flex;
+                justify-content: center;
+            }
+
+            .specificBook__information{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: justify;
+                align-items: center;    
+            }
+            .specificBook__information--buyButton{
+                height: 2.1rem;
+                border: 1px solid $second-color;
+                margin:1rem 0;
+                width: 6rem;
+    
+                color: $third-color;
+                background: $active-color;
+    
+                font-size: 1.2rem;
+            }
+
+            .specificBook__information--buyButton:hover{
+                background: lighten($active-color, 5%)
+            }
+
+            .specificBook__information--price{
+                font-size: 2rem;
             }
         }
     }
-    .mainPageContainer__aside{
-        display: none;
+    .mainPage__booksFromCart{
+
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+
+        .bookThumbnail{
+            width: 30%;
+            margin-top:100rem;
+
+           a{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin: 1rem;
+                border-bottom: 1px solid gray;
+
+                color:black;
+
+                text-decoration: none;
+
+                .dataAboutBook{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin: 2rem;
+
+                    .titleAndAuthor{
+                        display:flex;
+                        flex-direction: column;
+
+                        .titleAndAuthor__title{
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mainPageAside{
+        display: flex;
+        height: 100%;
+        width: 100%; 
+        flex-direction: column;
+
+        .mainPageAside__header{
+            padding: 0.1rem 0 0.1rem;
+            width: 100%;
+
+            background: $second-color;
+            color:$base-color;
+            
+            text-transform: uppercase;
+
+            .mainPageAside__header--text{
+                margin-left: 1rem;
+            }
+        }
+        .mainPageAside__generes{
+            margin: 1.1rem;
+            justify-content: center;
+
+            line-height: 2rem;
+            font-size: 1.4rem;
+            text-align: center;
+            
+            .mainPageAside__generes--link{
+                margin:0 5px 0
+            }
+
+            .mainPageAside__generes--link:hover{
+                cursor: pointer;
+            }
+        }
     }
 }
 .account{
@@ -101,205 +358,310 @@ body,html{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 20rem;
-    height: 20rem;
-    background-color: #bfb086;
-}
-.account__header{
-    margin:2rem;
-}
-.formRegister{
-    text-align: center;
-    .formRegister__label
-    {
-        display: flex;
-        flex-direction: column;
+    margin:10rem 0 10rem;
+    padding:2rem 1.5rem;
+
+    background-color: $second-color;
+    .account__header{
+        margin:2rem;
+
+        color: $base-color;
+        font-size: 3rem;
+    }
+
+    .formRegister{
         text-align: center;
-        margin-bottom: 1rem;
+
+        .formRegister__label{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+
+            color:$base-color;
+            
+    
+            text-align: center;
+        }
+        
+        .formInput{
+            height: 2rem;
+            border: 0;
+            padding-left: 0.4rem;
+            margin-top:0.3rem;
+
+            color: $second-color;
+            background: $base-color;
+
+            font-weight: bold;
+        }
+
+        .formButton{
+            height: 2.1rem;
+            border: 0;
+            margin-left: 0.5rem;
+
+            color: $third-color;
+            background: $active-color;
+
+            font-size: 1.2rem;
+        }
+
+        .formButton:hover{
+            background: lighten($active-color, 5%)
+        }
+   
+    }  
+
+    .formLogin{
+
+        text-align: center;
+        color: $base-color;
+    
+        .formLogin__label{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+    
+            text-align: center;
+        }
+    
+        .formInput{
+            height: 2rem;
+            border: 0;
+            padding-left: 0.4rem;
+            margin-top:0.3rem;
+    
+            color: $second-color;
+            background: $base-color;
+    
+            font-weight: bold;
+        }
+
+        .formButton{
+            height: 2.1rem;
+            border: 0;
+            margin-left: 0.5rem;
+
+            color: $third-color;
+            background: $active-color;
+
+            font-size: 1.2rem;
+        }
+
+        .formButton:hover{
+            background: lighten($active-color, 5%)
+        }
     }
 }
-.formLogin{
-    text-align: center;
-    .formLogin__label
-    {
+
+.footer{
+    padding: 1rem 0 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: $second-color;
+    
+    .footerLinks{
         display: flex;
         flex-direction: column;
+        margin: 0 1rem 1rem;
+        
         text-align: center;
-        margin-bottom: 1rem;
+
+        .footerLinks--header{
+            color:$base-color;
+            margin: 0 0 1rem;
+
+            font-size: 1.5rem;
+        }
+
+        .footerLinks--link{
+            color:$base-color;
+
+            text-decoration: none;
+        }
+        .footerLinks--link:hover{
+            color: lighten($base-color, 10%)
+        }
     }
 }
 
 @media only screen and (min-width: 900px) {
+
+    .stop-scrolling{
+        height: unset;
+        overflow: unset;
+    }
+
     .navigation{
-        position: fixed;
-        top: 0;
-        left: 0;
         padding-top: 0;
-        z-index: 1;
-        transition: 0.5s;
-        overflow-x: hidden;
-        background-color: #bfb086;
     
         .navigation__list{
             padding:0;
             display: flex;
             justify-content: center;
             align-items: center;
-            a{
-                text-decoration: none;
-                color:black;
-                font-size: 1.5rem;
-                display: block;
-                margin: 1rem;
-                text-align: center;
-                opacity: 0.8;
-                outline:none; // need to fix this blue background after click <- this should work but it's doesn't
-            }
-            a:hover{
-                opacity: 1;
-            }
-            a:focus{
-                outline:none;
-            }
-            .menuSearch{
-            display: flex;
-            align-items: center;
-                .menuSearch__searchInput{
-                    height: 1.5rem;
-                }
-                .menuSearch__searchButton{
-                    font-size: 1.2rem;
-                }
-            }
             
             .navigation__list--exitButton{
                 display: none;
             }
-            
+            .menuSearch__searchInput{
+                width: unset;
+            }
+        }
+    }
+    .container{
+
+        .mainPageBanner{
+            margin-top: 6em;
+        
+    
+            .mainPageBanner__title{
+                top:10%;
+                
+                font-size: 8rem;
+                text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+            }
+    
+            .mainPageBanner__title--line{
+                top:42%;
+                
+                width: 42%;
+                height: 2px;
+    
+                background: #ffffff;
+            }
+    
+            .mainPageBanner__info{
+                top:45%;;
+      
+                font-size: 5rem;
+                text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+            }
+    
+            .mainPageBanner__info--line{
+                top:67%;
+                
+                width: 60%;
+                height: 2px;
+            }       
         }
     }
     .mainPageContainer{
         display: flex;
-        width: 95%;
-        height: 100%;
-        margin-top: 2rem;
         flex-direction: row;
+        width: 100%;
+        height: 100%;
+        margin-top: 5rem;
+
         .mainPageMain{
-            width: 70%;
+            width: 65%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            .mainPageMain__header{
-                font-family: 'Oswald', sans-serif;
-            }
+            padding-right: 0.5%;
+
             .mainPage__books{
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
                 margin: 2rem;
+
                 .bookThumbnail{
-                    text-align: center;
-                    width: 33%;
+                    
+                    width: 30%;
+                    margin-right: 2%;
+                    margin-top:2rem;
                     margin-bottom: 1.4rem;
-                    a{
-                        text-decoration: none;
-                        color:black;
-    
-                        .bookThumbnail__title{
-                            font-size: 1.2rem;
-                            opacity: 0.8;
-                        }
-                        .bookThumbnail__title:hover{
-                            opacity: 1;
-                        }
-                        .bookThumbnail__author{
-                            opacity: 0.8;
-                        }
-                        .bookThumbnail__author:hover{
-                            opacity: 1;
-                        }
-                    }
-                }
-               
+
+                    text-align: center;
+                } 
             }
-        }
-        .mainPage__book{
-            .specificBook{
-                display: flex;
-                flex-direction: row;  
-                .specificBook__bookCover{
-                    margin: 1rem;
-                }
-                .specificBook__information{
-                    text-align: justify;    
-                }
-            }
-        }
-        .mainPage__booksFromCart{
-            display: flex;
-            flex-direction: column;
-            width: 90%;
-            .bookThumbnail{
-               a{
-                    text-decoration: none;
-                    color:black;
+
+            .mainPage__book{
+
+                .specificBook{
                     display: flex;
                     flex-direction: row;
-                    align-items: center;
-                    margin: 1rem;
-                    border-bottom: 1px solid gray;
-                        .dataAboutBook{
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: space-between;
-                            width: 100%;
-                            margin: 2rem;
-                            .titleAndAuthor{
-                                display:flex;
-                                flex-direction: column;
-                                .titleAndAuthor__title{
-                                    font-size: 1.5rem;
-                                }
-                            }
+                    justify-content: space-between;
+
+                    .specificBook__bookCover{
+                        margin: 2.4rem 0 0 2rem;
+                        display: unset;
+                        justify-content: unset;
+                    }
+
+                    .specificBook__information{
+                        margin: 1rem;
+                        display: unset;
+                        flex-direction: unset;
+                        justify-content: unset;
+                        text-align: unset;
+                        align-items: unset;    
+
+                        .specificBook__information--description{
+                            text-align: justify;
+                        }  
+                        
+                        .specificBook__information--buyButton{
+                            height: 2.1rem;
+                            border: 1px solid $second-color;;
+                            margin-top:1rem;
+                
+                            color: $third-color;
+                            background: $active-color;
+                
+                            font-size: 1.2rem;
                         }
+
+                    }
                 }
             }
         }
+
         .mainPageAside{
-            display: flex;
-            width: 30%;
             height: 100%;
-            flex-direction: column;
-            align-items: center;
-            border-left: #9e9e9e 1px solid;
+            padding-left: 0.5%;
+            width: 32%;
             
             .mainPageAside__header{
-                font-family: 'Oswald', sans-serif;
+                margin-left: 1rem;
+
             }
             .mainPageAside__generes{
-                text-align: center;
-                line-height: 2rem;
-                margin: 1.1rem;
-                justify-content: center;
-                .mainPageAside__generes--link:hover{
-                    cursor: pointer;
-                }
-                
+
                .recommendedBook{
                     margin-bottom: 1.5rem;
 
-                    a{
+                    a{ 
+                        margin-bottom: 2rem;
+
+                        color:black;    
+                        
                         text-decoration: none;
-                        color:black;     
-                        margin-bottom: 2rem;         
                     }
                     a:hover{
                         cursor: pointer;
                     }
-               }
-               
+                }
             }
+        } 
+    }
+
+    .account{
+        width: 20rem;
+    }
+
+    .footer{
+        width: 100%;
+        flex-direction: row;
+        align-items: unset;
+        
+        .footerLinks{
+            margin: 0 5rem;
         }
-       
     }
 }
