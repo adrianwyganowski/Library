@@ -1,15 +1,15 @@
 "use strict";
 MYAPP.DisplayBooks = (function () {
     const link = 'https://www.googleapis.com/books/v1/volumes?q=';
-    const key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
+    const key = '&AIzaSyCOt09FH6EqStWDf8clFFIHllXS6ORtR2E';
     async function displayBooks(books){ 
         for (let i = 0; i <  books.length ;i++)
         {
             const reuqest = link + books[i] + key; 
             const response = await fetch(reuqest);
             const obj = await response.json();
+            console.log(obj);
             for (let j = 0; j < obj.items.length; j++){
-                console.log(obj);
                 const div = document.createElement('div');
                 const author = checkIfAuthorIsUndefined(obj.items[j].volumeInfo.authors);
                 const imgSrc = checkIfImgSrcIsUndefined(obj.items[j].volumeInfo.imageLinks);
@@ -34,7 +34,6 @@ MYAPP.DisplayBooks = (function () {
                     </div>
                 </a>`
                 document.getElementsByClassName('mainPage__books')[0].appendChild(div);  
-                console.log(obj);
             }
         }
     }

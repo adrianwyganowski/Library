@@ -1,14 +1,13 @@
 "use strict";
 MYAPP.DisplayBooksFromCart = (function () {
     const link = 'https://www.googleapis.com/books/v1/volumes?q=';
-    const key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
+    const key = '&AIzaSyCOt09FH6EqStWDf8clFFIHllXS6ORtR2E';
     async function displayBooksFromCart(books){ 
         for (let i = 0; i < books.length;i++)
         {
             const reuqest = link + books[i] + key; 
             const response = await fetch(reuqest);
             const obj = await response.json();
-            console.log(obj);
             for (let j = 0; j < obj.totalItems; j++){
                 const div = document.createElement('div');
                 const author = checkIfAuthorIsNull(obj.items[j].volumeInfo.authors);
@@ -40,7 +39,6 @@ MYAPP.DisplayBooksFromCart = (function () {
                     </div>
                 </a>`
                 document.getElementsByClassName('mainPage__booksFromCart')[0].appendChild(div);  
-                //console.log(obj);
             }
         }
     }

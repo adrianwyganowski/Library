@@ -1,7 +1,7 @@
 "use strict";
 MYAPP.BookDetails = (function () {
     const link = 'https://www.googleapis.com/books/v1/volumes?q=';
-    const key = '&AIzaSyDHcMuGxU4GazERRB-JIXDJjMm40qXt644';
+    const key = '&AIzaSyCOt09FH6EqStWDf8clFFIHllXS6ORtR2E';
     
     async function displayBook(book){
         const reuqest = link + book + key;

@@ -45,7 +45,6 @@ MYAPP.Register = (function() {
     function sendUserToDb(emailPromise,passwordPromise){
         return Promise.all ([emailPromise,passwordPromise])
         .then(function(values){
-            console.log(values[0] + " mail " + values[1] + "  pass");
             if(values[0] === null || values[1] === undefined  || null){
                 return;
             }

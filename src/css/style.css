@@ -295,8 +295,8 @@ body, html {
 }
 
 .mainPageContainer .mainPage__booksFromCart .bookThumbnail {
-  width: 30%;
-  margin-top: 100rem;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .mainPageContainer .mainPage__booksFromCart .bookThumbnail a {
@@ -320,10 +320,10 @@ body, html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -401,7 +401,7 @@ body, html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 10rem 0 10rem;
+  margin: 15rem 0 15rem;
   padding: 2rem 1.5rem;
   background-color: #211717;
 }
@@ -696,6 +696,12 @@ body, html {
   }
   .mainPageContainer .mainPageAside .mainPageAside__generes .recommendedBook a:hover {
     cursor: pointer;
+  }
+  .mainPageContainer .mainPage__booksFromCart .bookThumbnail a .dataAboutBook {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .account {
     width: 20rem;
