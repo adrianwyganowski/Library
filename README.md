@@ -7,7 +7,9 @@ Mobile first e-commerce alike multi page app without backend and database. Books
 - log in to your account to be able to add books to the cart,
 - working cart.
  
- To be able to work on this app I use Visuals Studio Code Live Server.
+
+ ## Live preview:
+ https://adrianwyganowski.github.io/Library/
 
 
  Screenshots:

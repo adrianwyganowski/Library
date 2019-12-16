@@ -29,8 +29,6 @@ body, html {
   overflow-x: hidden;
   background-color: #211717;
   font-family: "Gupter", serif;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
 }
 
 .navigation .navigation__list {

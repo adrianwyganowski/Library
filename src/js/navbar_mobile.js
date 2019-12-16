@@ -63,7 +63,7 @@ MYAPP.NavbarMobile = (function() {
             sessionStorage.setItem('search',DOM.searchInput.value);    
         } 
         else{
-            console.log('You can not search empty field')// alert
+            alert("You can not search empty field")
         }
     }
     function init() {

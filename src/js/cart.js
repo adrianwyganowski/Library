@@ -31,6 +31,7 @@ MYAPP.Cart = (function() {
             const cartWithPurchasedBook = `${cart}${bookISBN},`;
             sessionStorage.setItem('cart', JSON.stringify(cartWithPurchasedBook));
             howManyItemsInCart();
+            alert("You purchased a book");
         }
        else{
            alert('Firstly you need login to buy book')
@@ -40,7 +41,7 @@ MYAPP.Cart = (function() {
         const cart =  JSON.parse(sessionStorage.getItem('cart'));
         if(cart !== null){
             const cartArray = cart.split(','); 
-            const cartArrayLength = cartArray.length - 1  // to fix added one because of ',' 
+            const cartArrayLength = cartArray.length - 1  
             const cartInMenu = document.getElementById('cartMenu');
             cartInMenu.innerHTML = `Cart (${cartArrayLength})`;
         }
